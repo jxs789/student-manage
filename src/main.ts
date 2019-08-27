@@ -2,8 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import echarts from 'echarts'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.prototype.$echarts = echarts 
+
+import Header from './components/myheader.vue';
+
+Vue.component('Header',Header);
 
 new Vue({
   router,
