@@ -1,0 +1,104 @@
+.wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  height: 70px;
+  background: #3f51b5;
+  width: 100%;
+  color: #ffff;
+  text-align: center;
+  line-height: 70px;
+  font-size: 28px;
+}
+.main {
+  flex: 1;
+  margin: 50px 80px;
+  .headline {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Roboto;
+    border: 1px solid rgba(187, 187, 187, 1);
+    position: relative;
+    .studentname{
+      margin-left: 80px;
+    }
+    .select{
+      padding: 10px;
+    }
+  //   .titleDelete{
+  //     width: 20px;
+  //     height: 20px;
+  //     text-align: center;
+  //     line-height: 20px;
+  //     border-radius: 50%;
+  //     color:#fff;
+  //     background: #000;
+  //     position: absolute;
+  //     font-size: 12px;
+  //     top:24px;
+  //     right:20px;
+  // }
+  }
+  
+}
+ul li{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-bottom: 1px solid #aaa;
+}
+li>span{
+  width: 100px;
+  text-align: center;
+  flex-shrink: 0;
+}
+li>div{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+li>div>span{
+  margin:0 5px;
+}
+.solve{
+  flex: 1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.content ul li span{
+  text-align: center;
+}
+.choose{
+  display: flex;
+  margin:10px 0;
+  span{
+     width: 80px;
+  }
+  input{
+      height: 30px;
+      width: 50%;
+      padding-left: 10px;
+  }
+}
+.day{
+  display: flex;
+  justify-content: center;
+  span{
+      padding: 10px 20px;
+      margin:0 10px;
+      border:1px solid #ccc;
+  }
+}
