@@ -4,18 +4,13 @@ export default {
     //命名空间
     namespaced: true,
     state: {
-        ind: 0,
-        nav: ["登入", "注册"],
-        current: {
-            inp: '',
-            pwd: '',
-            flag: false
+        box:{
+            flag:false
         }
     },
     mutations: {
-        //tab切换
-        updateInd(state, payload) {
-            state.ind = payload
+        updateFlag(state){
+            state.box.flag=!state.box.flag
         }
     },
     actions: {

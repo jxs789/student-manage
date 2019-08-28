@@ -98,7 +98,7 @@
                 margin-left: 30px;
               }
               p {
-                  margin-left:5px;
+                margin-left: 5px;
               }
             }
           }
@@ -108,6 +108,45 @@
         width: 100%;
         margin-top: 10px;
         background: #fff;
+      }
+      .selected {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        border: 1px solid #0076ff;
+        font-size: 14px;
+        background: #fff;
+        .left {
+          width: 15%;
+          line-height: 30px;
+          p{
+            color:#3F51B5 ;
+          }
+        }
+        .right {
+          width: 85%;
+          p {
+            margin-top:10px;
+            background: #009688;
+            color: #fff;
+            text-align: left;
+            line-height: 25px;
+          }
+        }
+      }
+      .down {
+        background: #fff;
+        border:1px solid #0076ff;
+        padding:10px 80px;
+        font-size: 14px;
+        margin-top:5px;
+        li{
+          text-align: left;
+          line-height: 35px;
+          p{
+            color:#666;
+          }
+        }
       }
     }
   }

@@ -16,25 +16,62 @@
             <p>张三，里斯，（3/人）</p>
             <div class="switch">
               <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
-              <label for="cmn-toggle-1"></label><p>柱形图/折线图</p>
+              <label for="cmn-toggle-1"></label>
+              <p>柱形图/折线图</p>
             </div>
           </dd>
         </dl>
       </div>
       <div class="myChart" ref="myChart" style="width: 100%;height:400px;"></div>
+      <div class="selected">
+        <div class="left" @click="showList">
+          <p>2019-08-30</p>
+          <p>今日分析及解决方案</p>
+          <span>查看历史纪录 v</span>
+        </div>
+        <div class="right">
+          <p>
+            分手的话放款速度飞快的速度为ureed能看见熔化温度挨饿u被分开计算带脑残违法可是大家参加二，安徽部分的v卡尔
+            分手的话放款速度飞快的速度为ureed能看见熔化温度挨饿u被分开计算带脑残违法可是大家参加二，安徽部分的v卡尔分手的话放款速度飞快的速度为ureed能看见熔化温度挨饿u被分开计算带脑残违法可是大家参加二，安徽部分的v卡尔
+            分手的话放款速度飞快的速度为ureed能看见熔化温度挨饿u被分开计算带脑残违法可是大家参加二，安徽部分的v卡尔
+          </p>
+        </div>
+      </div>
+      <ul class="down" v-show="box.flag">
+        <li>
+          <span>2019-08-30</span>
+          <p>sdsfsdfdsfdsfsdfdsfd</p>
+        </li>
+        <li>
+          <span>2019-08-30</span>
+          <p>sdsfsdfdsfdsfsdfdsfd</p>
+        </li>
+      </ul>
     </section>
   </div>
 </template>
 
 <script>
+import {mapState,mapMutations} from 'vuex'
 export default {
   props: {},
   components: {},
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      box:state=>state.charts.box
+    })
+  },
   methods: {
+    ...mapMutations({
+      updateFlag:'charts/updateFlag'
+    }),
+    showList(){
+      console.log(444)
+      this.updateFlag()
+    },
     drawLine() {
       let myChart = this.$echarts.init(this.$refs.myChart);
       myChart.setOption({
