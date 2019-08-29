@@ -9,7 +9,7 @@
             <li>1703C</li>
             <li>1703E</li>
             <li>1703E</li>
-            <li>创建班级+</li>
+            <li @click="add('addClass')">创建班级+</li>
           </ul>
         </div>
         <div class="switch">
@@ -29,78 +29,52 @@
         <MyChart/>
         <!-- <div id="myChart" :style="{width: '100%', height: '400px'}"></div> -->
         <div class="layer">
-          <span class="text">添加成绩+</span>
-          <span class="text">添加分析和解决方案+</span>
+          <span class="text" @click="add('add')">添加成绩+</span>
+          <span class="text" @click="add('establish')">添加分析和解决方案+</span>
           <span class="text">查看和编辑该生所有成绩</span>
         </div>
       </section>
-      <div class="from_box">
-        <div class="left">
-          <p class="rich">
-            <span>新添成绩--XX同学</span>
-            <span>X</span>
-          </p>
-          <div class="widget">
-            <p>
-              <input type="text" placeholder="默认当前日期" />
-              <button>昨天</button>
-            </p>
-            <p>
-              <label for>技能</label>
-              <input type="text" placeholder="数学" />
-            </p>
-            <p>
-              <label for>理论</label>
-              <input type="text" placeholder="0-100之间数学" />
-            </p>
-          </div>
-          <p class="hcenter">
-            <button>取消</button>
-            <button>确定</button>
-          </p>
-        </div>
-        <div class="right">
-          <p class="rich">
-            <span>新添分析--XX同学</span>
-            <span>X</span>
-          </p>
-          <div class="widget">
-            <p>
-              <input type="text" placeholder="默认当前日期" />
-              <button>昨天</button>
-            </p>
-            <p>
-              <label for>分析</label>
-              <input type="text"/>
-            </p>
-            <p>
-              <label for>解决方案</label>
-              <input type="text"/>
-            </p>
-          </div>
-           <p class="hcenter">
-            <button>取消</button>
-            <button>确定</button>
-          </p>
-        </div>
-      </div>
+      <!-- <From  v-show="info.flag" @change="change"/> -->
+       <Dialog v-show="info.flag" @change="change" />
     </main>
   </div>
 </template>
 <script>
-
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   props: {},
   components: {},
   data() {
-    return {};
+    return {
+      // flag: false,
+      // analyzes: false
+    };
   },
-  computed: {},
+  computed: {
+  ...mapState({
+      info: state => state.visual.info
+    })
+  },
   methods: {
+     ...mapMutations({
+      upstatus: "visual/upstatus"
+    }),
+    add(type) {
+        this.upstatus(type)
+
+      // this.flag=true
+    },
+    change(f){
+     this.flag=f 
+     this.analyzes=f
+    },
+    // establish(type){
+    //   this.upstatus()
+    //   // this.analyzes=true
+    // }
   },
   created() {},
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 <style lang="scss">

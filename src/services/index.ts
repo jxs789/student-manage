@@ -1,4 +1,5 @@
 export * from './register';
+export * from "./visual";
 
 
 // import request from '../utils/request';
