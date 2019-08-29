@@ -50,10 +50,10 @@
     </section>
   </div>
 </template>
-
-<script>
-import {mapState,mapMutations} from 'vuex'
-export default {
+<script lang="ts">
+import { mapState, mapMutations } from "vuex";
+import Vue from "vue";
+export default Vue.extend({
   props: {},
   components: {},
   data() {
@@ -61,16 +61,16 @@ export default {
   },
   computed: {
     ...mapState({
-      box:state=>state.charts.box
+      box: state => state.charts.box
     })
   },
   methods: {
     ...mapMutations({
-      updateFlag:'charts/updateFlag'
+      updateFlag: "charts/updateFlag"
     }),
-    showList(){
-      console.log(444)
-      this.updateFlag()
+    showList() {
+      console.log(444);
+      this.updateFlag();
     },
     drawLine() {
       let myChart = this.$echarts.init(this.$refs.myChart);
@@ -160,7 +160,7 @@ export default {
   mounted() {
     this.drawLine();
   }
-};
+});
 </script>
 
 <style scoped lang="scss">

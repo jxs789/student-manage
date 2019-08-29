@@ -32,9 +32,10 @@
     </section>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { mapState, mapActions, mapMutations } from "vuex";
-export default {
+import Vue from "vue";
+export default Vue.extend({
   props: {},
   components: {},
   data() {
@@ -42,9 +43,9 @@ export default {
   },
   computed: {
     ...mapState({
-      ind: state => state.login.ind,
-      nav: state => state.login.nav,
-      current: state => state.login.current
+      ind: (state:any) => state.login.ind,
+      nav: (state:any) => state.login.nav,
+      current: (state:any) => state.login.current
     }),
     navdata() {
       return "重点学生日周考成绩录入管理系统";
@@ -76,10 +77,10 @@ export default {
     }
   },
   created() {
-    // console.log(this.ind);
+    console.log(this.nav);
   },
   mounted() {}
-};
+})
 </script>
 <style scoped lang="scss">
 @import "../style/login";

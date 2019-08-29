@@ -1,14 +1,21 @@
-import { getRegister } from "../../services/index"
+import { getRegister } from "@/services/index"
 
 export default {
     //命名空间
     namespaced: true,
     state: {
-        flag: false
+        ind : 0,
+        nav: [] = ["登入", "注册"],
+        current: {
+            inp: '',
+            pwd: '',
+            flag: false
+        }
     },
     mutations: {
-        updateFlag(state:any){
-            state.flag=!state.flag
+        //tab切换
+        updateInd(state: any, payload: any) {
+            state.ind = payload
         }
     },
     actions: {
@@ -21,10 +28,10 @@ export default {
         //     // }
         // }
 
-        // async getregister({ commit }: { commit: Function },  payload : Object): Promise<void> {
+        async getregister({ commit }: { commit: Function }, payload: Object): Promise<void> {
             // console.log('444',payload)
-            // let data: any = await getRegister(payload);
-            // console.log(data)
+            let data: any = await getRegister(payload);
+            console.log(data)
             // 更新品牌信息
             // let brandList:any = {};
             // data.data.forEach((item:any) => {
@@ -42,6 +49,6 @@ export default {
             //     return item.Spelling[0];
             // })
             // commit('updateLetterList', Array.from(new Set(letterList)));
-        // }
+        }
     }
 }
