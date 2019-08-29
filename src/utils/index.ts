@@ -1,18 +1,19 @@
-import Cookie from 'js-cookie';
-
-const key = 'x-nideshop-token'
-
-export function setToken(val) {
-    let date = new Date();
-    let expires = date.getTime() + 10 * 60 * 60 * 1000;
-    date.setTime(expires)
-    Cookie.set(key, val, { expires: date })
+const key = 'token'
+// 设置cookie, 过期时间为十个小时
+export function setToken(val: string) {
+    console.log(val)
+    localStorage.setItem(key, val);
 }
-//读取cookie
+// 读取cookie
 export function getToken() {
-    return Cookie.get(key)
+    if (window.localStorage.getItem(key)) {
+        return true
+    } else {
+        return false
+    }
+    //  return  window.localStorage.getItem(key) 
 }
-
+// 删除cookie
 export function removeToken() {
-    Cookie.remove(key)
+    window.localStorage.removeItem(key)
 }

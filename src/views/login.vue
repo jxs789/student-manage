@@ -77,7 +77,6 @@ export default Vue.extend({
     }
   },
   created() {
-    console.log(this.nav);
   },
   mounted() {}
 })
