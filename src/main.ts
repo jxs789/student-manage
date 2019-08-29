@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import echarts from 'echarts'
 import Header from './components/myheader.vue';
+import MyChart from './components/myChart.vue';
 import ElementUI from 'element-ui';
 import "../node_modules/element-ui/lib/theme-chalk/index.css"
 Vue.use(ElementUI);
@@ -13,6 +14,7 @@ Vue.prototype.$echarts = echarts
 
 
 Vue.component('Header',Header);
+Vue.component('MyChart',MyChart);
 
 new Vue({
   router,
