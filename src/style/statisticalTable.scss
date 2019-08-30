@@ -4,14 +4,8 @@
   display: flex;
   flex-direction: column;
 }
-.header {
-  height: 70px;
-  background: #3f51b5;
-  width: 100%;
-  color: #ffff;
-  text-align: center;
-  line-height: 70px;
-  font-size: 28px;
+header {
+  background: #0076ff;
 }
 .main {
   flex: 1;

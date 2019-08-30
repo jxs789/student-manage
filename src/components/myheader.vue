@@ -1,9 +1,11 @@
 <template>
-  <header>{{this.$attrs.navdata}}</header>
+  <header>{{this.$route.meta.title}}{{navdata}}</header>
 </template>
 <script>
 export default {
-  props: {},
+  props: {
+    navdata:String
+  },
   components: {},
   data() {
     return {};

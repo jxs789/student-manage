@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <header class="header">重点关注学生考试成绩统计图</header>
+    <Header></Header>
     <main class="main">
       <section class="navBox">
         <div class="lt">

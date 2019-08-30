@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Header :navdata="this.$route.meta.title"></Header>
+    <Header />
   </div>
 </template>
 

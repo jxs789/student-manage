@@ -1,54 +1,61 @@
-import { getRegister } from "@/services/index"
+import { getRegister, getLogin } from "@/services/index"
 
 export default {
     //命名空间
     namespaced: true,
     state: {
-        ind : 0,
+        ind: 0,
         nav: [] = ["登入", "注册"],
         current: {
-            inp: '',
-            pwd: '',
-            flag: false
+            username: '',
+            password: '',
+            flag: false,
+            status: ''
         }
     },
     mutations: {
         //tab切换
         updateInd(state: any, payload: any) {
             state.ind = payload
-        }
+        },
+        //两天登录
+        updateCheck(state: any){
+            state.current.flag=!state.current.flag
+        },
+        //改变状态
+        updateStatus(state: any, payload: any) {
+            if (payload === 1) {
+                //注册成功
+                state.current.status = 1;
+                state.ind = 0;
+                state.current.username = ''
+                state.current.password = ''
+            } else if (payload === 0) {
+                state.current.status = 0;
+                state.current.username = ''
+                state.current.password = ''
+            } else if (payload === '登陆成功！') {
+                state.current.status = 2;
+            } else {
+                state.current.status = 3;
+            }
+        },
+        //遮罩层2s消失
+        updateTimer(state: any){
+            state.current.status=''
+        },
     },
     actions: {
-        // async getregister({ commit }, payload) {
-        //     // console.log(payload)
-        //     let data = await getRegister(payload)
-        //     console.log(data)
-        //     // if (data.res_code === 1) {
-        //     //     commit('updateCountDown', data.res_code)
-        //     // }
-        // }
-
         async getregister({ commit }: { commit: Function }, payload: Object): Promise<void> {
-            // console.log('444',payload)
             let data: any = await getRegister(payload);
-            console.log(data)
-            // 更新品牌信息
-            // let brandList:any = {};
-            // data.data.forEach((item:any) => {
-            //     let letter = item.Spelling[0];
-            //     if (brandList[letter]){
-            //         brandList[letter].push(item);
-            //     }else{
-            //         brandList[letter] = [item];
-            //     }
-            // });
-            // commit('updateBrandList', brandList);
-
-            // 更新字母信息
-            // let letterList: Array<string> = data.data.map((item: {Spelling: String})=>{
-            //     return item.Spelling[0];
-            // })
-            // commit('updateLetterList', Array.from(new Set(letterList)));
+            commit('updateStatus', data.code)
+        },
+        //登录
+        async getlogin({ commit }: { commit: Function }, payload: Object): Promise<void> {
+            let data: any = await getLogin(payload);
+            localStorage.setItem('userinfo',payload.username)
+            console.log(data, '2222')
+            commit('updateStatus', data.msg)
         }
     }
 }
